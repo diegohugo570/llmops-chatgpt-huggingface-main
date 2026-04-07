@@ -142,12 +142,17 @@ Preparado para evolução com ferramentas de LLMOps (monitoramento, cache, etc.)
 🚀 Deploy
 
 Docker (Recomendado)
+```
 docker build -t llmops-app .
-docker run -p 8000:8000 llmops-app
-Cloud (Render / Railway / AWS)
-Subir repositório
-Configurar serviço Python
 
+docker run -p 8000:8000 llmops-app
+```
+Cloud (Render / Railway / AWS)
+
+Subir repositório
+```
+Configurar serviço Python
+```
 Definir:
 
 Start Command
