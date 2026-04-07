@@ -1,33 +1,187 @@
-# About Repo
+# 🤖 LLMOps — ChatGPT & Hugging Face Integration
 
-This is a Repo containing the souce code of the Course - 
-LLMOps with ChatGPT - Hugging Face Models - Deploy on Production
+Projeto focado em **LLMOps (Large Language Model Operations)**, demonstrando como integrar, gerenciar e operacionalizar modelos de linguagem utilizando **OpenAI (ChatGPT)** e **Hugging Face**.
 
-Author : Nachiketh Murthy 
+O objetivo é criar uma base prática para desenvolvimento, experimentação e deploy de aplicações com IA generativa, incluindo boas práticas de engenharia, organização e escalabilidade.
 
-Reach the Instructor at - https://www.linkedin.com/in/nachiketh-murthy/
+---
 
+## 🚀 Tecnologias Utilizadas
 
-Course link : https://www.manifoldailearning.in/courses/LLMOps-with-ChatGPT-Deploy-on-Production-65cb265ae4b086660d2836ae
+### 🧠 Inteligência Artificial
+- OpenAI API (ChatGPT)
+- Hugging Face Transformers
+- Hugging Face Inference API
 
-support email: support@manifoldailearning.in
+### 🔙 Backend
+- Python 3.10+
+- FastAPI / Flask *(dependendo da implementação do projeto)*
+- Uvicorn
 
-Other Courses:
+### ⚙️ LLMOps & Infra
+- Docker
+- dotenv
+- Requests / HTTPX
+- Logging
 
-# Course links
+### 🔜 Opcional / Extensões
+- LangChain
+- Vector Databases (FAISS, Pinecone, etc.)
+- Redis (cache)
 
-Generative AI Mastery:
-https://www.manifoldailearning.in/courses/Generative-AI-Mastery---2024-65f54b9b914da35a42a7bbdd
+---
 
+## ⚙️ Como Rodar o Projeto Localmente
 
-LLMOps Course : 
-https://www.manifoldailearning.in/courses/LLMOps-with-ChatGPT-Deploy-on-Production-65cb265ae4b086660d2836ae
+### 1️⃣ Clonar o Repositório
 
+```bash
+git clone <url-do-repositorio>
+cd llmops-chatgpt-huggingface-main
+```
 
+2️⃣ Criar Ambiente Virtual
+```
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+```
+Windows:
+```
+venv\Scripts\activate
+```
+3️⃣ Instalar Dependências
+```
+pip install -r requirements.txt
+```
+4️⃣ Configurar Variáveis de Ambiente
 
-MLOps Course:
-https://www.manifoldailearning.in/courses/Complete-MLOps-BootCamp-654ddf11e4b004edc19e2649
+Crie um arquivo .env na raiz do projeto:
+```
+OPENAI_API_KEY=your_openai_key_here
+HUGGINGFACE_API_KEY=your_hf_key_here
+MODEL_NAME=gpt-4
+HF_MODEL=google/flan-t5-base
+```
+5️⃣ Executar a Aplicação
 
+Se estiver usando FastAPI:
+```
+uvicorn app.main:app --reload
+```
+Ou Flask:
+```
+python app.py
+```
+Servidor disponível em:
+```
+👉 http://localhost:8000
+```
 
-MLOps with AWS:
-https://www.manifoldailearning.in/courses/Master-Practical-MLOps-for-Data-Scientists--DevOps-on-AWS-65351f01e4b08600bc438698
+---
+
+📡 Endpoints Principais
+🔹 Chat com ChatGPT
+POST /chat/openai
+
+Body:
+
+{
+  "prompt": "Explique o que é LLMOps"
+}
+🔹 Geração com Hugging Face
+POST /chat/huggingface
+
+Body:
+
+{
+  "prompt": "Resuma inteligência artificial em 3 linhas"
+}
+🔹 Health Check
+GET /health
+
+---
+
+🧠 Decisões Técnicas
+Separação por provedores (OpenAI / Hugging Face) para facilitar testes comparativos.
+Arquitetura modular:
+routes/ → endpoints
+services/ → lógica de IA
+config/ → variáveis e setup
+Uso de variáveis de ambiente para segurança.
+Implementação desacoplada para permitir troca de modelos facilmente.
+Preparado para evolução com ferramentas de LLMOps (monitoramento, cache, etc.).
+
+---
+
+📦 Funcionalidades Implementadas
+
+- 🤖 Integração com ChatGPT (OpenAI)
+- 🤗 Integração com Hugging Face
+- 🔄 Comparação entre modelos
+- 📡 API REST para consumo externo
+- ⚙️ Configuração via .env
+- 🧪 Base para experimentação com prompts
+
+---
+
+🏗️ Estrutura do Projeto
+```
+├── app/
+│   ├── main.py
+│   ├── routes/
+│   ├── services/
+│   ├── config/
+│   └── models/
+├── requirements.txt
+├── .env
+└── README.md
+```
+
+---
+
+🚀 Deploy
+
+Docker (Recomendado)
+docker build -t llmops-app .
+docker run -p 8000:8000 llmops-app
+Cloud (Render / Railway / AWS)
+Subir repositório
+Configurar serviço Python
+
+Definir:
+
+Start Command
+```
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+Variáveis:
+
+OPENAI_API_KEY
+HUGGINGFACE_API_KEY
+
+🔐 Segurança
+Nunca versionar .env
+Usar secrets em produção
+Implementar rate limit (recomendado)
+Adicionar autenticação para APIs públicas
+
+📈 Possíveis Evoluções
+
+🧠 Memory (contexto persistente)
+🔍 RAG (Retrieval-Augmented Generation)
+📊 Observabilidade (logs + métricas)
+⚡ Cache de respostas (Redis)
+📚 Embeddings + busca semântica
+🤖 Orquestração com LangChain
+
+🎯 Objetivo do Projeto
+Aprender e aplicar conceitos de LLMOps
+Comparar modelos de linguagem
+Criar APIs inteligentes reutilizáveis
+Servir como base para aplicações reais com IA
+
+📚 Referências
+- https://platform.openai.com/docs
+- https://huggingface.co/docs
+- https://fastapi.tiangolo.com
+- https://www.langchain.com
