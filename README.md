@@ -155,33 +155,45 @@ Start Command
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 Variáveis:
-
+```
 OPENAI_API_KEY
 HUGGINGFACE_API_KEY
+```
+
+---
 
 🔐 Segurança
-Nunca versionar .env
-Usar secrets em produção
-Implementar rate limit (recomendado)
-Adicionar autenticação para APIs públicas
+
+- Nunca versionar .env
+- Usar secrets em produção
+- Implementar rate limit (recomendado)
+- Adicionar autenticação para APIs públicas
+
+---
 
 📈 Possíveis Evoluções
 
-🧠 Memory (contexto persistente)
-🔍 RAG (Retrieval-Augmented Generation)
-📊 Observabilidade (logs + métricas)
-⚡ Cache de respostas (Redis)
-📚 Embeddings + busca semântica
-🤖 Orquestração com LangChain
+- 🧠 Memory (contexto persistente)
+- 🔍 RAG (Retrieval-Augmented Generation)
+- 📊 Observabilidade (logs + métricas)
+- ⚡ Cache de respostas (Redis)
+- 📚 Embeddings + busca semântica
+- 🤖 Orquestração com LangChain
+
+---
 
 🎯 Objetivo do Projeto
-Aprender e aplicar conceitos de LLMOps
-Comparar modelos de linguagem
-Criar APIs inteligentes reutilizáveis
-Servir como base para aplicações reais com IA
+
+- Aprender e aplicar conceitos de LLMOps
+- Comparar modelos de linguagem
+- Criar APIs inteligentes reutilizáveis
+- Servir como base para aplicações reais com IA
+
+---
 
 📚 Referências
 - https://platform.openai.com/docs
 - https://huggingface.co/docs
 - https://fastapi.tiangolo.com
 - https://www.langchain.com
+---
