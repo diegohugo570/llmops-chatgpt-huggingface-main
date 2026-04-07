@@ -102,14 +102,17 @@ GET /health
 ---
 
 🧠 Decisões Técnicas
-Separação por provedores (OpenAI / Hugging Face) para facilitar testes comparativos.
+
+- Separação por provedores (OpenAI / Hugging Face) para facilitar testes comparativos.
+
 Arquitetura modular:
-routes/ → endpoints
-services/ → lógica de IA
-config/ → variáveis e setup
-Uso de variáveis de ambiente para segurança.
-Implementação desacoplada para permitir troca de modelos facilmente.
-Preparado para evolução com ferramentas de LLMOps (monitoramento, cache, etc.).
+
+- routes/ → endpoints
+- services/ → lógica de IA
+- config/ → variáveis e setup
+- Uso de variáveis de ambiente para segurança.
+- Implementação desacoplada para permitir troca de modelos facilmente.
+- Preparado para evolução com ferramentas de LLMOps (monitoramento, cache, etc.).
 
 ---
 
@@ -146,9 +149,9 @@ Docker (Recomendado)
 docker build -t llmops-app .
 
 docker run -p 8000:8000 llmops-app
-```
-Cloud (Render / Railway / AWS)
 
+Cloud (Render / Railway / AWS)
+```
 Subir repositório
 ```
 Configurar serviço Python
